@@ -1,0 +1,145 @@
+<NotepadPlus>
+	<!-- a common syntax highlighting for HLSL/Cg GLSL, OpenCL and CUDA-->
+	<!-- file formats extendable for any other shader file type name -->
+	<!-- format list include cfi/cfx from CryENGINE, vshd/pshd/shd/shdt from OblivionEngine -->
+	<!-- TODO: merge in keywords from GLSL CL CUDA RenderMan -->
+	<UserLang name="ShaderSpeak" ext="hlsl glsl cg cgfx fx vert pixl frag geom surf hull cl cu cuda gl glfx cfi cfx pshd vshd shd shdt shader vsh psh gsh hsh">
+        <Settings>
+            <Global caseIgnored="no" />
+            <TreatAsSymbol comment="yes" commentLine="yes" />
+            <Prefix words1="no" words2="no" words3="no" words4="no" />
+        </Settings>
+        <KeywordLists>
+            <Keywords name="Delimiters">&quot;00&quot;00</Keywords>
+            <Keywords name="Folder+"></Keywords>
+            <Keywords name="Folder-"></Keywords>
+            <Keywords name="Operators">- ! % &amp; ( ) * , . : ; ? [ ] ^ | ~ + &lt; = &gt;</Keywords>
+            <Keywords name="Comment"> 1/* 2*/ 0//</Keywords>
+            <Keywords name="Words1">
+			void char string vector matrix
+			bool bool2 bool3 bool4 bvec2 bvec3 bvec4 bool2x2 bool2x3 bool2x4 bool3x2 bool3x3 bool3x4 bool4x2 bool4x3 bool4x4 bmat2 bmat3 bmat4 bmat2x2 bmat2x3 bmat2x4 bmat3x2 bmat3x3 bmat3x4 bmat4x2 bmat4x3 bmat4x4 
+			short 
+			int int2 int3 int4 ivec2 ivec3 ivec4 int2x2 int2x3 int2x4 int3x2 int3x3 int3x4 int4x2 int4x3 int4x4 imat2 imat3 imat4 imat2x2 imat2x3 imat2x4 imat3x2 imat3x3 imat3x4 imat4x2 imat4x3 imat4x4 
+			long 
+			half half2 half3 half4 half2x2 half2x3 half2x4 half3x2 half3x3 half3x4 half4x2 half4x3 half4x4 
+			float float2 float3 float4 vec2 vec3 vec4 float2x2 float2x3 float2x4 float3x2 float3x3 float3x4 float4x2 float4x3 float4x4 mat2 mat3 mat4 mat2x2 mat2x3 mat2x4 mat3x2 mat3x3 mat3x4 mat4x2 mat4x3 mat4x4 
+			double double2 double3 double4 double2x2 double2x3 double2x4 double3x2 double3x3 double3x4 double4x2 double4x3 double4x4 
+			sampler sampler1D sampler2D sampler3D samplerCUBE  texture  texture1D  texture2D  texture3D  textureCUBE
+			unsigned mutable 
+			struct typedef const static extern attribute varying uniform shared volatile inline explicit virtual friend 
+			technique&#x0D;&#x0A; pass&#x0D;&#x0A; pixelshader vertexshader geometryshader hullshader
+			in inout out
+			auto
+			kernel
+			true false
+			typename union&#x0D;&#x0A; enum&#x0D;&#x0A; namespace&#x0D;&#x0A; struct&#x0D;&#x0A; class&#x0D;&#x0A; 
+			asm compile decl do if else for return while&#x0D;&#x0A; break case catch class&#x0D;&#x0A; const_cast continue default dynamic_cast goto 
+			new delete operator private protected public register&#x0D;&#x0A;reinterpret_cast signed sizeof static_cast switch&#x0D;&#x0A;template this throw try using 
+			.x .y .z .w .r .g .b .a 
+			.xx .xy .xz .xw .rr .rg .rb .ra 
+			.yx .yy .yz .yw .gr .gg .gb .ga 
+			.zx .zy .zz .zw .br .bg .bb .ba 
+			.wx .wy .wz .ww .ar .ag .ab .aa 
+			.xxx .xxy .xxz .xxw .rrr .rrg .rrb .rra 
+			.xyx .xyy .xyz .xyw .rgr .rgg .rgb .rga 
+			.xzx .xzy .xzz .xzw .rbr .rbg .rbb .rba 
+			.xwx .xwy .xwz .xww .rar .rag .rab .raa 
+			.yxx .yxy .yxz .yxw .grr .grg .grb .gra 
+			.yyx .yyy .yyz .yyw .ggr .ggg .ggb .gga 
+			.yzx .yzy .yzz .yzw .gbr .gbg .gbb .gba 
+			.ywx .ywy .ywz .yww .gar .gag .gab .gaa 
+			.zxx .zxy .zxz .zxw .brr .brg .brb .bra 
+			.zyx .zyy .zyz .zyw .bgr .bgg .bgb .bga 
+			.zzx .zzy .zzz .zzw .bbr .bbg .bbb .bba 
+			.zwx .zwy .zwz .zww .bar .bag .bab .baa 
+			.wxx .wxy .wxz .wxw .arr .arg .arb .ara 
+			.wyx .wyy .wyz .wyw .agr .agg .agb .aga 
+			.wzx .wzy .wzz .wzw .abr .abg .abb .aba 
+			.wwx .wwy .wwz .www .aar .aag .aab .aaa 			
+			.xxxx .xxxy .xxxz .xxxw .rrrr .rrrg .rrrb .rrra 
+			.xxyx .xxyy .xxyz .xxyw .rrgr .rrgg .rrgb .rrga 
+			.xxzx .xxzy .xxzz .xxzw .rrbr .rrbg .rrbb .rrba 
+			.xxwx .xxwy .xxwz .xxww .rrar .rrag .rrab .rraa 
+			.xyxx .xyxy .xyxz .xyxw .rgrr .rgrg .rgrb .rgra 
+			.xyyx .xyyy .xyyz .xyyw .rggr .rggg .rggb .rgga 
+			.xyzx .xyzy .xyzz .xyzw .rgbr .rgbg .rgbb .rgba 
+			.xywx .xywy .xywz .xyww .rgar .rgag .rgab .rgaa 
+			.xzxx .xzxy .xzxz .xzxw .rbrr .rbrg .rbrb .rbra 
+			.xzyx .xzyy .xzyz .xzyw .rbgr .rbgg .rbgb .rbga 
+			.xzzx .xzzy .xzzz .xzzw .rbbr .rbbg .rbbb .rbba 
+			.xzwx .xzwy .xzwz .xzww .rbar .rbag .rbab .rbaa 
+			.xwxx .xwxy .xwxz .xwxw .rarr .rarg .rarb .rara 
+			.xwyx .xwyy .xwyz .xwyw .ragr .ragg .ragb .raga 
+			.xwzx .xwzy .xwzz .xwzw .rabr .rabg .rabb .raba 
+			.xwwx .xwwy .xwwz .xwww .raar .raag .raab .raaa 			
+			.yxxx .yxxy .yxxz .yxxw .grrr .grrg .grrb .grra 
+			.yxyx .yxyy .yxyz .yxyw .grgr .grgg .grgb .grga 
+			.yxzx .yxzy .yxzz .yxzw .grbr .grbg .grbb .grba 
+			.yxwx .yxwy .yxwz .yxww .grar .grag .grab .graa 
+			.yyxx .yyxy .yyxz .yyxw .ggrr .ggrg .ggrb .ggra 
+			.yyyx .yyyy .yyyz .yyyw .gggr .gggg .gggb .ggga 
+			.yyzx .yyzy .yyzz .yyzw .ggbr .ggbg .ggbb .ggba 
+			.yywx .yywy .yywz .yyww .ggar .ggag .ggab .ggaa 
+			.yzxx .yzxy .yzxz .yzxw .gbrr .gbrg .gbrb .gbra 
+			.yzyx .yzyy .yzyz .yzyw .gbgr .gbgg .gbgb .gbga 
+			.yzzx .yzzy .yzzz .yzzw .gbbr .gbbg .gbbb .gbba 
+			.yzwx .yzwy .yzwz .yzww .gbar .gbag .gbab .gbaa 
+			.ywxx .ywxy .ywxz .ywxw .garr .garg .garb .gara 
+			.ywyx .ywyy .ywyz .ywyw .gagr .gagg .gagb .gaga 
+			.ywzx .ywzy .ywzz .ywzw .gabr .gabg .gabb .gaba 
+			.ywwx .ywwy .ywwz .ywww .gaar .gaag .gaab .gaaa 			
+			.zxxx .zxxy .zxxz .zxxw .brrr .brrg .brrb .brra 
+			.zxyx .zxyy .zxyz .zxyw .brgr .brgg .brgb .brga 
+			.zxzx .zxzy .zxzz .zxzw .brbr .brbg .brbb .brba 
+			.zxwx .zxwy .zxwz .zxww .brar .brag .brab .braa 
+			.zyxx .zyxy .zyxz .zyxw .bgrr .bgrg .bgrb .bgra 
+			.zyyx .zyyy .zyyz .zyyw .bggr .bggg .bggb .bgga 
+			.zyzx .zyzy .zyzz .zyzw .bgbr .bgbg .bgbb .bgba 
+			.zywx .zywy .zywz .zyww .bgar .bgag .bgab .bgaa 
+			.zzxx .zzxy .zzxz .zzxw .bbrr .bbrg .bbrb .bbra 
+			.zzyx .zzyy .zzyz .zzyw .bbgr .bbgg .bbgb .bbga 
+			.zzzx .zzzy .zzzz .zzzw .bbbr .bbbg .bbbb .bbba 
+			.zzwx .zzwy .zzwz .zzww .bbar .bbag .bbab .bbaa 
+			.zwxx .zwxy .zwxz .zwxw .barr .barg .barb .bara 
+			.zwyx .zwyy .zwyz .zwyw .bagr .bagg .bagb .baga 
+			.zwzx .zwzy .zwzz .zwzw .babr .babg .babb .baba 
+			.zwwx .zwwy .zwwz .zwww .baar .baag .baab .baaa 			
+			.wxxx .wxxy .wxxz .wxxw .arrr .arrg .arrb .arra 
+			.wxyx .wxyy .wxyz .wxyw .argr .argg .argb .arga 
+			.wxzx .wxzy .wxzz .wxzw .arbr .arbg .arbb .arba 
+			.wxwx .wxwy .wxwz .wxww .arar .arag .arab .araa 
+			.wyxx .wyxy .wyxz .wyxw .agrr .agrg .agrb .agra 
+			.wyyx .wyyy .wyyz .wyyw .aggr .aggg .aggb .agga 
+			.wyzx .wyzy .wyzz .wyzw .agbr .agbg .agbb .agba 
+			.wywx .wywy .wywz .wyww .agar .agag .agab .agaa 
+			.wzxx .wzxy .wzxz .wzxw .abrr .abrg .abrb .abra 
+			.wzyx .wzyy .wzyz .wzyw .abgr .abgg .abgb .abga 
+			.wzzx .wzzy .wzzz .wzzw .abbr .abbg .abbb .abba 
+			.wzwx .wzwy .wzwz .wzww .abar .abag .abab .abaa 
+			.wwxx .wwxy .wwxz .wwxw .aarr .aarg .aarb .aara 
+			.wwyx .wwyy .wwyz .wwyw .aagr .aagg .aagb .aaga 
+			.wwzx .wwzy .wwzz .wwzw .aabr .aabg .aabb .aaba 
+			.wwwx .wwwy .wwwz .wwww .aaar .aaag .aaab .aaaa 			
+			</Keywords>
+            <Keywords name="Words2">abs ceil clamp cos cross degrees determinant distance dot floor length lerp log log10 log2 max min mul normalize pow radians reflect refract rsqrt saturate sin sincos sqrt tan transpose tex1D tex1Dlod tex1Dbias tex2D tex2Dlod tex2Dbias tex3D tex3Dlod tex3Dbias texCUBE texCUBElod texCUBEbias</Keywords>
+            <Keywords name="Words3">POSITION COLOR0 COLOR1 COLOR2 COLOR3 COLOR4 BLENDWEIGHTS BLENDINDICES NORMAL PSIZE DIFFUSE SPECULAR TEXCOORD TANGENT BINORMAL TESSFACTOR&#x0D;&#x0A;POSITION0 BLENDWEIGHTS0 BLENDINDICES0 NORMAL0 PSIZE0 DIFFUSE0 SPECULAR0 TEXCOORD0 TANGENT0 BINORMAL0 TESSFACTOR0&#x0D;&#x0A;POSITION1 BLENDWEIGHTS1 BLENDINDICES1 NORMAL1 PSIZE1 DIFFUSE1 SPECULAR1 TEXCOORD1 TANGENT1 BINORMAL1 TESSFACTOR1&#x0D;&#x0A;POSITION2 BLENDWEIGHTS2 BLENDINDICES2 NORMAL2 PSIZE2 DIFFUSE2 SPECULAR2 TEXCOORD2 TANGENT2 BINORMAL2 TESSFACTOR2&#x0D;&#x0A;POSITION3 BLENDWEIGHTS3 BLENDINDICES3 NORMAL3 PSIZE3 DIFFUSE3 SPECULAR3 TEXCOORD3 TANGENT3 BINORMAL3 TESSFACTOR3&#x0D;&#x0A;POSITION4 BLENDWEIGHTS4 BLENDINDICES4 NORMAL4 PSIZE4 DIFFUSE4 SPECULAR4 TEXCOORD4 TANGENT4 BINORMAL4 TESSFACTOR4&#x0D;&#x0A;POSITION5 BLENDWEIGHTS5 BLENDINDICES5 NORMAL5 PSIZE5 DIFFUSE5 SPECULAR5 TEXCOORD5 TANGENT5 BINORMAL5 TESSFACTOR5&#x0D;&#x0A;POSITION6 BLENDWEIGHTS6 BLENDINDICES6 NORMAL6 PSIZE6 DIFFUSE6 SPECULAR6 TEXCOORD6 TANGENT6 BINORMAL6 TESSFACTOR6&#x0D;&#x0A;POSITION7 BLENDWEIGHTS7 BLENDINDICES7 NORMAL7 PSIZE7 DIFFUSE7 SPECULAR7 TEXCOORD7 TANGENT7 BINORMAL7 TESSFACTOR7&#x0D;&#x0A;POSITION8 BLENDWEIGHTS8 BLENDINDICES8 NORMAL8 PSIZE8 DIFFUSE8 SPECULAR8 TEXCOORD8 TANGENT8 BINORMAL8 TESSFACTOR8POSITION9 BLENDWEIGHTS9 BLENDINDICES9 NORMAL9 PSIZE9 DIFFUSE9 SPECULAR9 TEXCOORD9 TANGENT9 BINORMAL9 TESSFACTOR9&#x0D;&#x0A;POSITION10 BLENDWEIGHTS10 BLENDINDICES10 NORMAL10 PSIZE10 DIFFUSE10 SPECULAR10 TEXCOORD10 TANGENT10 BINORMAL10 TESSFACTOR10&#x0D;&#x0A;POSITION11 BLENDWEIGHTS11 BLENDINDICES11 NORMAL11 PSIZE11 DIFFUSE11 SPECULAR11 TEXCOORD11 TANGENT11 BINORMAL11 TESSFACTOR11&#x0D;&#x0A;POSITION19 BLENDWEIGHTS19 BLENDINDICES19 NORMAL19 PSIZE19 DIFFUSE19 SPECULAR19 TEXCOORD19 TANGENT19 BINORMAL19 TESSFACTOR19&#x0D;&#x0A;POSITION110 BLENDWEIGHTS110 BLENDINDICES110 NORMAL110 PSIZE110 DIFFUSE110 SPECULAR110 TEXCOORD110 TANGENT110 BINORMAL110 TESSFACTOR110&#x0D;&#x0A;POSITION111 BLENDWEIGHTS111 BLENDINDICES111 NORMAL111 PSIZE111 DIFFUSE111 SPECULAR111 TEXCOORD111 TANGENT111 BINORMAL111 TESSFACTOR111&#x0D;&#x0A;POSITION119 BLENDWEIGHTS119 BLENDINDICES119 NORMAL119 PSIZE119 DIFFUSE119 SPECULAR119 TEXCOORD119 TANGENT119 BINORMAL119 TESSFACTOR15 FOG COLOR0 COLOR1 COLOR2 COLOR3 COLOR4 COLOR5 COLOR6 COLOR7 COLOR8 COLOR9 COLOR10 COLOR11 COLOR12 COLOR13 COLOR14 COLOR15 TEXCOORD0 TEXCOORD1 TEXCOORD2 TEXCOORD3 TEXCOORD4 TEXCOORD5 TEXCOORD6 TEXCOORD7 TEXCOORD8 TEXCOORD9 TEXCOORD10 TEXCOORD11 TEXCOORD12 TEXCOORD13 TEXCOORD14 TEXCOORD15</Keywords>
+            <Keywords name="Words4"># #define #undef #if #ifdef #ifndef #else #elif #endif #error #pragma #extension #version #line #pragma ## __LINE__ __FILE__ __VERSION__ %</Keywords>
+        </KeywordLists>
+        <Styles>
+            <WordsStyle name="DEFAULT" styleID="11" fgColor="000000" bgColor="FFFFFF" fontName="Courier New" fontStyle="0" fontSize="10" />
+            <WordsStyle name="FOLDEROPEN" styleID="12" fgColor="0000FF" bgColor="FFFFFF" fontName="Courier New" fontStyle="0" fontSize="10" />
+            <WordsStyle name="FOLDERCLOSE" styleID="13" fgColor="0000FF" bgColor="FFFFFF" fontName="Courier New" fontStyle="0" fontSize="10" />
+            <WordsStyle name="KEYWORD1" styleID="5" fgColor="0000FF" bgColor="FFFFFF" fontName="Courier New" fontStyle="0" fontSize="10" />
+            <WordsStyle name="KEYWORD2" styleID="6" fgColor="0000FF" bgColor="FFFFFF" fontName="Courier New" fontStyle="0" fontSize="10" />
+            <WordsStyle name="KEYWORD3" styleID="7" fgColor="8000FF" bgColor="FFFFFF" fontName="Courier New" fontStyle="0" fontSize="10" />
+            <WordsStyle name="KEYWORD4" styleID="8" fgColor="8000FF" bgColor="FFFFFF" fontName="" fontStyle="0" />
+            <WordsStyle name="COMMENT" styleID="1" fgColor="008040" bgColor="FFFFFF" fontName="Courier New" fontStyle="0" fontSize="10" />
+            <WordsStyle name="COMMENT LINE" styleID="2" fgColor="008040" bgColor="FFFFFF" fontName="Courier New" fontStyle="0" fontSize="10" />
+            <WordsStyle name="NUMBER" styleID="4" fgColor="000000" bgColor="FFFFFF" fontName="Courier New" fontStyle="0" fontSize="10" />
+            <WordsStyle name="OPERATOR" styleID="10" fgColor="000000" bgColor="FFFFFF" fontName="Courier New" fontStyle="0" />
+            <WordsStyle name="DELIMINER1" styleID="14" fgColor="808000" bgColor="FFFFFF" fontName="Courier New" fontStyle="0" fontSize="10" />
+            <WordsStyle name="DELIMINER2" styleID="15" fgColor="000000" bgColor="FFFFFF" fontName="Courier New" fontStyle="0" fontSize="10" />
+            <WordsStyle name="DELIMINER3" styleID="16" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" />
+        </Styles>
+    </UserLang>
+</NotepadPlus>
